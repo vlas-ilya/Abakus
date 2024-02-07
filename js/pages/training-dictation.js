@@ -93,8 +93,11 @@ class TrainingDictation {
             const time = (type === "solving" ? timeSolving : timeChecking) - Math.floor((new Date() - currentTime) / 1000)
             if (time < 0) {
                 clearInterval(this.interval)
+                if (type === "checking"){
+                    exercises = exercises.slice(1)
+                }
                 this.startTimer(
-                    exercises.slice(1),
+                    exercises,
                     type === "solving" ? "checking" : "solving",
                     timeSolving,
                     timeChecking,
