@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Абакус</title>
+	<link rel="stylesheet" href="./css/reset.css" type="text/css">
+	<link rel="stylesheet" href="./css/index.css" type="text/css">
+</head>
+<body>
+<div class="page">
+	<div>
+		<section class="head">
+			<div class="head-title">
+				<h1>Ментальная арифметика</h1>
+			</div>
+			<div class="head-links">
+				<div class="link">
+					Формулы
+				</div>
+			</div>
+		</section>
+		<section class="loader">
+		</section>
+		<section class="body" style="display: none;">
+			<div class="body-intro">
+				<p>
+					Ментальная арифметика — это методика обучения счету в уме с использованием специальных счетов — абакуса. Это древний инструмент для счета, состоящий из рамки с вертикальными стержнями и движущимися по ним бусинами
+				</p>
+				<p>
+					На данном сайте вы сможете потренировать навыки счета на абакусе
+				</p>
+				<p>
+					Доступно два вида тренировок <strong>диктант</strong> и <strong>тест</strong>
+				</p>
+				<div class="selectTraining">
+					<div class="selectTraining-item dictationInfo" role="button" tabindex="0">
+						<p>Во время диктанта вам будут предлагаться примеры поочередно и с небольшой задержкой будет показываться ответ</p>
+						<p>Ваша задача успеть сосчитать пример на абакусе, а затем сверить свой ответ</p>
+						
+					</div>
+					<div class="selectTraining-item testInfo" role="button" tabindex="1">
+						<p>Во время теста вам будут предлагаться набор заданий выбранной сложности</p>
+						<p>Ваша задача за установленное время посчитать все задания, а затем сверить свои ответы</p>
+					</div>
+				</div>
+			</div>
+			<div class="body-preparing">
+				<p>Укажите параметры для тренировки</p>
+				<div class="dictationPreparing preparingTraining">
+					<h2>Диктант</h2>
+					<div class="preparingTraining-params">
+						<div class="param">
+							<label class="param-label">Длинна числа</label>
+							<div class="param-control">
+								<input type="number" name="dictationPreparingNumberCount" class="dictationPreparingNumberCount" min="1" value="2" max="4">
+							</div>
+						</div>
+						<div class="param">
+							<label class="param-label">Количество примеров</label>
+							<div class="param-control">
+								<input type="number" name="dictationPreparingExerciseCount" class="dictationPreparingExerciseCount" min="10" value="10" max="100">
+							</div>
+						</div>
+						<div class="param">
+							<label class="param-label">Количество чисел</label>
+							<div class="param-control">
+								<input type="number" name="dictationPreparingOperandCount" class="dictationPreparingOperandCount" min="2" value="3" max="4">
+							</div>
+						</div>
+						<div class="param">
+							<label class="param-label">Сложность</label>
+							<div class="param-control">
+								<select name="dictationPreparingLevel" class="dictationPreparingLevel">
+									<option value="Простые формулы">Простые формулы</option>
+									<option value="Младшие товарищи">Младшие товарищи</option>
+									<option value="Старшие товарищи">Старшие товарищи</option>
+									<option value="Составные формулы">Составные формулы</option>
+								</select>
+							</div>
+						</div>
+						<div class="param">
+							<label class="param-label">Время на решение</label>
+							<div class="param-control">
+								<input type="number" name="dictationPreparingTimeSolving" class="dictationPreparingTimeSolving" min="5" value="5" max="20">
+							</div>
+						</div>
+						<div class="param">
+							<label class="param-label">Время на проверку</label>
+							<div class="param-control">
+								<input type="number" name="dictationPreparingTimeChecking" class="dictationPreparingTimeChecking" min="5" value="5" max="20">
+							</div>
+						</div>
+						<div class="actions">
+							<button class="actions-button primary dictationPreparingStart">Начать</button>	
+							<button class="actions-button secondary dictationPreparingBack">Назад</button>	
+						</div>
+					</div>
+				</div>
+				<div class="testPreparing preparingTraining">
+					<h2>Тест</h2>
+					<div class="preparingTraining-params">
+						<div class="param">
+							<label class="param-label">Длинна числа</label>
+							<div class="param-control">
+								<input type="number" name="testPreparingNumberCount" class="testPreparingNumberCount" min="1" value="2" max="4">
+							</div>
+						</div>
+						<div class="param">
+							<label class="param-label">Количество примеров</label>
+							<div class="param-control">
+								<input type="number" name="testPreparingExerciseCount" class="testPreparingExerciseCount" min="10" value="10" max="100">
+							</div>
+						</div>
+						<div class="param">
+							<label class="param-label">Количество чисел</label>
+							<div class="param-control">
+								<input type="number" name="testPreparingOperandCount" class="testPreparingOperandCount" min="2" value="3" max="4">
+							</div>
+						</div>
+						<div class="param">
+							<label class="param-label">Сложность</label>
+							<div class="param-control">
+								<select name="testPreparingLevel" class="testPreparingLevel">
+									<option>Простые формулы</option>
+									<option>Младшие товарищи</option>
+									<option>Старшие товарищи</option>
+									<option>Составные формулы</option>
+								</select>
+							</div>
+						</div>
+						<div class="param">
+							<label class="param-label">Время на решение</label>
+							<div class="param-control">
+								<input type="number" name="testPreparingTimeSolving" class="testPreparingTimeSolving" min="5" value="60" max="1000">
+							</div>
+						</div>
+						<div class="actions">
+							<button class="actions-button primary testPreparingStart">Начать</button>	
+							<button class="actions-button secondary testPreparingBack">Назад</button>	
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="body-training body-training-loading">
+				<div class="trainingTimer">
+					<span class="trainingTimer-timer">60</span>
+				</div>
+				<div class="dictationTraining"></div>
+				<div class="testTraining"></div>
+			</div>
+		</section>
+	</div>
+	<section class="footer">
+		footer
+		<div class="footer-about">
+			footer-about
+		</div>
+		<div class="footer-contacts">
+			footer-contacts
+		</div>
+	</section>
+</div>
+
+<script src="./js/app/generator.js"></script>
+
+<script src="./js/controls/block.js"></script>
+<script src="./js/controls/page.js"></script>
+<script src="./js/controls/button.js"></script>
+<script src="./js/controls/count.js"></script>
+<script src="./js/controls/select.js"></script>
+<script src="./js/controls/range.js"></script>
+<script src="./js/controls/span.js"></script>
+
+<script src="./js/pages/body.js"></script>
+<script src="./js/pages/intro.js"></script>
+<script src="./js/pages/loader.js"></script>
+<script src="./js/pages/preparing.js"></script>
+<script src="./js/pages/training-test.js"></script>
+<script src="./js/pages/training-dictation.js"></script>
+<script src="./js/pages/training.js"></script>
+
+<script src="./js/ui.js"></script>
+
+<script src="./js/index.js"></script>
+
+</body>
+</html>
