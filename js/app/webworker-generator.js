@@ -227,7 +227,7 @@ function generateExercises(count, numberCount, operandCount, level) {
 
 if (typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope) {
 	self.addEventListener('message', function(e) {
-		if (e.data.cmd == 'generate') {
+		if (e.data.cmd === 'generate') {
             const startTime = new Date()
 			const [count, numberCount, operandCount, level] = e.data.data
 			const exercises = generateExercises(count, numberCount, operandCount, level)

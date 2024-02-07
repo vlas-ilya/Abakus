@@ -4,6 +4,7 @@ class TrainingPage extends Page {
 		this.onStateChange = onStateChange
 
 		this.control = new Block("body-training")
+		this.trainingLoader = new Block("trainingLoader")
 		this.dictationTraining = new TrainingDictation(this.onStateChange)
 		this.testTraining = new TrainingTest(this.onStateChange)
 
@@ -17,14 +18,17 @@ class TrainingPage extends Page {
 			this.testTraining.hide()
 			this.timerBody.hide()
 			this.control.hide()
+			this.trainingLoader.hide()
 			return
 		}
 
 		this.dictationTraining.hide()
 		this.testTraining.hide()
 		this.timerBody.hide()
+		this.trainingLoader.show()
 
 		if (state.exercises.length > 0) {
+			this.trainingLoader.hide()
 			if (state.trainingType === "dictation") {
 				this.dictationTraining.showExercises(
 					state.timeSolving, 
