@@ -3,7 +3,7 @@ class PreparingPage extends Page {
 		super()
 		this.onStateChange = onStateChange
 
-		this.control = new Block("body-preparing")
+		this.control = new Block("Body-Preparing", true)
 		
 		this.dictationPreparingBlock = new Block("dictationPreparing")
 

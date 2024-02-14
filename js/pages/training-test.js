@@ -1,8 +1,8 @@
 class TrainingTest {
     constructor(onStateChange) {
         this.onStateChange = onStateChange
-        this.control = new Block("body-training")
-        this.testTraining = new Block("testTraining")
+        this.control = new Block("Body-Training")
+        this.testTraining = new Block("TestTraining", true)
         this.timerBody = new Block("trainingTimer")
         this.timer = new Span("trainingTimer-timer")
     }
@@ -33,7 +33,10 @@ class TrainingTest {
 
         apply(this.testTraining.control, root => {
             add(root, "table", table => {
-                table.classList.add("testTrainingTable")
+                table.classList.add("TestTrainingTable")
+                if (showAnswers) {
+                    table.classList.add("TestTrainingTable_checking")
+                }
                 add(table, "thead", thead => {
                     add(thead, "tr", tr => {
                         add(tr, "th", th => {
@@ -55,7 +58,7 @@ class TrainingTest {
                                     add(td, "input", input => {
                                         input.setAttribute("answer", exercise[1])
                                         input.setAttribute("type", "number")
-                                        input.classList.add("testTrainingTable-input")
+                                        input.classList.add("TestTrainingTable-input")
                                         input.addEventListener(
                                             "change",
                                             (event) => exercise[2] = 1 * event.target.value,
@@ -76,9 +79,15 @@ class TrainingTest {
                                                     add(span, document.createTextNode(exercise[2] || ""))
                                                 })
                                             })
+                                        } else {
+                                            add(td, "span", span => {
+                                                span.classList.add("incorrect")
+                                                add(span, "span", span => {
+                                                    add(span, document.createTextNode("Нет ответа"))
+                                                })
+                                            })
                                         }
 										add(td, "span", span => {
-											span.classList.add("correct")
 											add(span, document.createTextNode(exercise[1]))
 										})
                                     }
@@ -89,11 +98,11 @@ class TrainingTest {
                 })
             })
             add(root, "div", div => {
-                div.classList.add("actions")
+                div.classList.add("Actions")
                 if (!showAnswers) {
                     add(div, 'button', button => {
                         add(button, document.createTextNode("Проверить"))
-                        button.classList.add("actions-button")
+                        button.classList.add("Actions_Button")
                         button.classList.add("primary")
                         button.addEventListener(
                             'click',
@@ -108,7 +117,7 @@ class TrainingTest {
                 }
                 add(div, 'button', button => {
                     add(button, document.createTextNode("Назад"))
-                    button.classList.add("actions-button")
+                    button.classList.add("Actions_Button")
                     button.classList.add("secondary")
                     button.addEventListener(
                         'click',

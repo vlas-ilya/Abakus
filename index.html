@@ -1,154 +1,182 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8">
     <title>Абакус</title>
     <link rel="stylesheet" href="./css/reset.css" type="text/css">
     <link rel="stylesheet" href="./css/index.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<div class="page">
-    <section class="head">
-        <div class="head-title">
-            <h1>Ментальная арифметика</h1>
+<div class="Page">
+    <div class="Head">
+        <div class="Head-Content">
+            <div class="Head-Title">
+                Абакус
+            </div>
+            <div class="Head-SubTitle">
+                Ментальная арифметика
+            </div>
         </div>
-    </section>
-    <section class="loader">
-    </section>
-    <section class="body" style="display: none;">
-        <div class="body-intro">
+    </div>
+    <div class="Loader">
+    </div>
+    <div class="Body" style="display: none;">
+        <div class="Body-Intro">
             <p>
-                Ментальная арифметика — это методика обучения счету в уме с использованием специальных счетов — абакуса.
+                <strong>Ментальная арифметика</strong> — это методика обучения счету в уме с использованием специальных счетов — <strong>абакуса</strong>.
                 Это древний инструмент для счета, состоящий из рамки с вертикальными стержнями и движущимися по ним
                 бусинами
             </p>
+            <img src="./img/abakus.jpeg" alt="Абакус"/>
             <p>
-                На данном сайте вы сможете потренировать навыки счета на абакусе
+                Здесь вы сможете потренировать навыки счета на абакусе. Доступно два вида тренировок <strong>диктант</strong> и <strong>тест</strong>
             </p>
-            <p>
-                Доступно два вида тренировок <strong>диктант</strong> и <strong>тест</strong>
-            </p>
-            <div class="selectTraining">
-                <div class="selectTraining-item dictationInfo" role="button" tabindex="0">
-                    <p>Во время диктанта вам будут предлагаться примеры поочередно и с небольшой задержкой будет
-                        показываться ответ</p>
-                    <p>Ваша задача успеть сосчитать пример на абакусе, а затем сверить свой ответ</p>
-
+            <p>Во время <strong>диктанта</strong> вам будут предлагаться примеры поочередно и с небольшой задержкой будет показываться ответ. Ваша задача успеть сосчитать пример на абакусе, а затем сверить свой ответ.</p>
+            <p>Во время <strong>теста</strong> вам будут предлагаться набор заданий выбранной сложности. Ваша задача за установленное время посчитать все задания, а затем сверить свои ответы.</p>
+            <div class="TrainingSelector">
+                <div class="TrainingSelector-Item dictationInfo" role="button" tabindex="0">
+                    Диктант
                 </div>
-                <div class="selectTraining-item testInfo" role="button" tabindex="1">
-                    <p>Во время теста вам будут предлагаться набор заданий выбранной сложности</p>
-                    <p>Ваша задача за установленное время посчитать все задания, а затем сверить свои ответы</p>
+                <div class="TrainingSelector-Item testInfo" role="button" tabindex="1">
+                    Тест
                 </div>
             </div>
         </div>
-        <div class="body-preparing">
-            <p>Укажите параметры для тренировки</p>
-            <div class="dictationPreparing preparingTraining">
-                <h2>Диктант</h2>
-                <div class="preparingTraining-params">
-                    <div class="param">
-                        <label class="param-label" for="dictationPreparingNumberCount">Длинна числа</label>
-                        <div class="param-control">
-                            <input type="number" id="dictationPreparingNumberCount" min="1" value="2" max="4">
-                        </div>
+        <div class="Body-Preparing">
+            <div class="dictationPreparing TrainingPreparation">
+                <h2 class="TrainingPreparation_Title">Диктант</h2>
+                <div class="TrainingPreparation_Content">
+                    <div class="TrainingPreparation_Description">
+                        <p>Во время <strong>диктанта</strong> вам будут предлагаться примеры поочередно и с небольшой задержкой будет показываться ответ. Ваша задача успеть сосчитать пример на абакусе, а затем сверить свой ответ.</p>
+                        <p>Справа вы можете указать необходимые параметры тренировки</p>
+                        <ul>
+                            <li><strong>Длина числа</strong> - максимальное количество знаков в числе</li>
+                            <li><strong>Количество примеров</strong> - количество примеров в диктанте</li>
+                            <li><strong>Количество чисел</strong> - количество чисел в одном примере</li>
+                            <li><strong>Сложность</strong> - Максимальная сложность примеров в диктанте. Одно из значений: <strong>Простые формулы</strong>, <strong>Младшие товарищи</strong>, <strong>Старшие товарищи</strong> или <strong>Составные формулы</strong></li>
+                            <li><strong>Время на решение</strong> - время за которое необходимо решить один пример</li>
+                            <li><strong>Время на проверку</strong> - промежуток времени между примерами когда будет отображаться ответ</li>
+                        </ul>
                     </div>
-                    <div class="param">
-                        <label class="param-label" for="dictationPreparingExerciseCount">Количество примеров</label>
-                        <div class="param-control">
-                            <input type="number" id="dictationPreparingExerciseCount" min="10" value="10" max="100">
+                    <div class="TrainingPreparation_Params">
+                        <div class="Param">
+                            <label class="Param_Label" for="dictationPreparingNumberCount">Длина числа</label>
+                            <div class="Param-control">
+                                <input type="number" id="dictationPreparingNumberCount" min="1" value="2" max="4">
+                            </div>
                         </div>
-                    </div>
-                    <div class="param">
-                        <label class="param-label" for="dictationPreparingOperandCount">Количество чисел</label>
-                        <div class="param-control">
-                            <input type="number" id="dictationPreparingOperandCount" min="2" value="3" max="4">
+                        <div class="Param">
+                            <label class="Param_Label" for="dictationPreparingExerciseCount">Количество примеров</label>
+                            <div class="Param-control">
+                                <input type="number" id="dictationPreparingExerciseCount" min="10" value="10" max="100">
+                            </div>
                         </div>
-                    </div>
-                    <div class="param">
-                        <label class="param-label" for="dictationPreparingLevel">Сложность</label>
-                        <div class="param-control">
-                            <select id="dictationPreparingLevel">
-                                <option value="Простые формулы">Простые формулы</option>
-                                <option value="Младшие товарищи">Младшие товарищи</option>
-                                <option value="Старшие товарищи">Старшие товарищи</option>
-                                <option value="Составные формулы">Составные формулы</option>
-                            </select>
+                        <div class="Param">
+                            <label class="Param_Label" for="dictationPreparingOperandCount">Количество чисел</label>
+                            <div class="Param-control">
+                                <input type="number" id="dictationPreparingOperandCount" min="2" value="3" max="4">
+                            </div>
                         </div>
-                    </div>
-                    <div class="param">
-                        <label class="param-label" for="dictationPreparingTimeSolving">Время на решение</label>
-                        <div class="param-control">
-                            <input type="number" id="dictationPreparingTimeSolving" min="2" value="5" max="20">
+                        <div class="Param">
+                            <label class="Param_Label" for="dictationPreparingLevel">Сложность</label>
+                            <div class="Param-control">
+                                <select id="dictationPreparingLevel">
+                                    <option value="Простые формулы">Простые формулы</option>
+                                    <option value="Младшие товарищи">Младшие товарищи</option>
+                                    <option value="Старшие товарищи">Старшие товарищи</option>
+                                    <option value="Составные формулы">Составные формулы</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="param">
-                        <label class="param-label" for="dictationPreparingTimeChecking">Время на проверку</label>
-                        <div class="param-control">
-                            <input type="number" id="dictationPreparingTimeChecking" min="2" value="5" max="20">
+                        <div class="Param">
+                            <label class="Param_Label" for="dictationPreparingTimeSolving">Время на решение</label>
+                            <div class="Param-control">
+                                <input type="number" id="dictationPreparingTimeSolving" min="2" value="5" max="20">
+                            </div>
                         </div>
-                    </div>
-                    <div class="actions">
-                        <button class="actions-button primary dictationPreparingStart">Начать</button>
-                        <button class="actions-button secondary dictationPreparingBack">Назад</button>
+                        <div class="Param">
+                            <label class="Param_Label" for="dictationPreparingTimeChecking">Время на проверку</label>
+                            <div class="Param-control">
+                                <input type="number" id="dictationPreparingTimeChecking" min="2" value="5" max="20">
+                            </div>
+                        </div>
+                        <div class="Actions">
+                            <button class="Actions_Button primary dictationPreparingStart">Начать</button>
+                            <button class="Actions_Button secondary dictationPreparingBack">Назад</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="testPreparing preparingTraining">
-                <h2>Тест</h2>
-                <div class="preparingTraining-params">
-                    <div class="param">
-                        <label class="param-label" for="testPreparingNumberCount">Длинна числа</label>
-                        <div class="param-control">
-                            <input type="number" id="testPreparingNumberCount" min="1" value="2" max="4">
-                        </div>
+            <div class="testPreparing TrainingPreparation">
+                <h2 class="TrainingPreparation_Title">Тест</h2>
+                <div class="TrainingPreparation_Content">
+                    <div class="TrainingPreparation_Description">
+                        <p>Во время <strong>теста</strong> вам будут предлагаться набор заданий выбранной сложности. Ваша задача за установленное время посчитать все задания, а затем сверить свои ответы.</p>
+                        <p>Справа вы можете указать необходимые параметры тренировки</p>
+                        <ul>
+                            <li><strong>Длина числа</strong> - максимальное количество знаков в числе</li>
+                            <li><strong>Количество примеров</strong> - количество примеров в диктанте</li>
+                            <li><strong>Количество чисел</strong> - количество чисел в одном примере</li>
+                            <li><strong>Сложность</strong> - Максимальная сложность примеров в диктанте. Одно из значений: <strong>Простые формулы</strong>, <strong>Младшие товарищи</strong>, <strong>Старшие товарищи</strong> или <strong>Составные формулы</strong></li>
+                            <li><strong>Время на решение</strong> - время за которое необходимо <strong>пройти весь тест</strong></li>
+                        </ul>
                     </div>
-                    <div class="param">
-                        <label class="param-label" for="testPreparingExerciseCount">Количество примеров</label>
-                        <div class="param-control">
-                            <input type="number" id="testPreparingExerciseCount" min="10" value="10" max="100">
+                    <div class="TrainingPreparation_Params">
+                        <div class="Param">
+                            <label class="Param_Label" for="testPreparingNumberCount">Длина числа</label>
+                            <div class="Param-control">
+                                <input type="number" id="testPreparingNumberCount" min="1" value="2" max="4">
+                            </div>
                         </div>
-                    </div>
-                    <div class="param">
-                        <label class="param-label" for="testPreparingOperandCount">Количество чисел</label>
-                        <div class="param-control">
-                            <input type="number" id="testPreparingOperandCount" min="2" value="3" max="4">
+                        <div class="Param">
+                            <label class="Param_Label" for="testPreparingExerciseCount">Количество примеров</label>
+                            <div class="Param-control">
+                                <input type="number" id="testPreparingExerciseCount" min="10" value="10" max="100">
+                            </div>
                         </div>
-                    </div>
-                    <div class="param">
-                        <label class="param-label" for="testPreparingLevel">Сложность</label>
-                        <div class="param-control">
-                            <select id="testPreparingLevel">
-                                <option>Простые формулы</option>
-                                <option>Младшие товарищи</option>
-                                <option>Старшие товарищи</option>
-                                <option>Составные формулы</option>
-                            </select>
+                        <div class="Param">
+                            <label class="Param_Label" for="testPreparingOperandCount">Количество чисел</label>
+                            <div class="Param-control">
+                                <input type="number" id="testPreparingOperandCount" min="2" value="3" max="4">
+                            </div>
                         </div>
-                    </div>
-                    <div class="param">
-                        <label class="param-label" for="testPreparingTimeSolving">Время на решение</label>
-                        <div class="param-control">
-                            <input type="number" id="testPreparingTimeSolving" min="5" value="60" max="1000">
+                        <div class="Param">
+                            <label class="Param_Label" for="testPreparingLevel">Сложность</label>
+                            <div class="Param-control">
+                                <select id="testPreparingLevel">
+                                    <option>Простые формулы</option>
+                                    <option>Младшие товарищи</option>
+                                    <option>Старшие товарищи</option>
+                                    <option>Составные формулы</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="actions">
-                        <button class="actions-button primary testPreparingStart">Начать</button>
-                        <button class="actions-button secondary testPreparingBack">Назад</button>
+                        <div class="Param">
+                            <label class="Param_Label" for="testPreparingTimeSolving">Время на решение</label>
+                            <div class="Param-control">
+                                <input type="number" id="testPreparingTimeSolving" min="5" value="60" max="1000">
+                            </div>
+                        </div>
+                        <div class="Actions">
+                            <button class="Actions_Button primary testPreparingStart">Начать</button>
+                            <button class="Actions_Button secondary testPreparingBack">Назад</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="body-training">
+        <div class="Body-Training">
             <div class="trainingLoader">
                 <p>Подготовка</p>
             </div>
             <div class="trainingTimer">
                 <span class="trainingTimer-timer">60</span>
             </div>
-            <div class="dictationTraining"></div>
-            <div class="testTraining"></div>
+            <div class="DictationTraining"></div>
+            <div class="TestTraining"></div>
         </div>
-    </section>
+    </div>
 </div>
 
 <script src="./js/utils/utils.js"></script>

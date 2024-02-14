@@ -3,7 +3,7 @@ class TrainingPage extends Page {
 		super()
 		this.onStateChange = onStateChange
 
-		this.control = new Block("body-training")
+		this.control = new Block("Body-Training")
 		this.trainingLoader = new Block("trainingLoader")
 		this.dictationTraining = new TrainingDictation(this.onStateChange)
 		this.testTraining = new TrainingTest(this.onStateChange)

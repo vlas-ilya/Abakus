@@ -1,8 +1,8 @@
 class TrainingDictation {
     constructor(onStateChange) {
         this.onStateChange = onStateChange
-        this.control = new Block("body-training")
-        this.dictationTraining = new Page("dictationTraining", true)
+        this.control = new Block("Body-Training")
+        this.dictationTraining = new Page("DictationTraining", true)
         this.timerBody = new Block("trainingTimer")
         this.timer = new Span("trainingTimer-timer")
     }
@@ -17,6 +17,9 @@ class TrainingDictation {
         this.dictationTraining.show()
         this.timerBody.show()
 
+        this.exercisesCount = exercises.length
+        this.currentExercise = 1
+
         this.startTimer(exercises, "solving", timeSolving, timeChecking, (type, exercise) => {
             this.dictationTraining.clear()
             if (type === "finish") {
@@ -25,7 +28,7 @@ class TrainingDictation {
                     add(root, "div", div => {
                         add(div, 'button', button => {
                             add(button, document.createTextNode("Попробовать еще раз?"))
-                            button.classList.add("actions-button")
+                            button.classList.add("Actions_Button")
                             button.classList.add("secondary")
                             button.addEventListener(
                                 'click',
@@ -37,16 +40,19 @@ class TrainingDictation {
                         })
                     })
                 })
-            }
-            if (type === "solving") {
+            } else if (type === "solving") {
                 apply(this.dictationTraining.control, root => {
                     add(root, "div", div => {
-                        div.classList.add("dictationTraining-solving")
+                        div.classList.add("DictationTraining_Number")
+                        add(div, document.createTextNode(`${this.currentExercise} из ${this.exercisesCount}`))
+                    })
+                    add(root, "div", div => {
+                        div.classList.add("DictationTraining_Solving")
                         add(div, document.createTextNode(exercise[0]))
                     })
                     add(root, 'button', button => {
-                        add(button, document.createTextNode("Назад"))
-                        button.classList.add("actions-button")
+                        add(button, document.createTextNode("Закончить"))
+                        button.classList.add("Actions_Button")
                         button.classList.add("secondary")
                         button.addEventListener(
                             'click',
@@ -60,12 +66,16 @@ class TrainingDictation {
             } else {
                 apply(this.dictationTraining.control, root => {
                     add(root, "div", div => {
-                        div.classList.add("dictationTraining-checking")
+                        div.classList.add("DictationTraining_Number")
+                        add(div, document.createTextNode(`${this.currentExercise} из ${this.exercisesCount}`))
+                    })
+                    add(root, "div", div => {
+                        div.classList.add("DictationTraining_Checking")
                         add(div, document.createTextNode("Ответ: " + exercise[1]))
                     })
                     add(root, 'button', button => {
-                        add(button, document.createTextNode("Назад"))
-                        button.classList.add("actions-button")
+                        add(button, document.createTextNode("Закончить"))
+                        button.classList.add("Actions_Button")
                         button.classList.add("secondary")
                         button.addEventListener(
                             'click',
@@ -95,6 +105,7 @@ class TrainingDictation {
                 clearInterval(this.interval)
                 if (type === "checking"){
                     exercises = exercises.slice(1)
+                    this.currentExercise += 1
                 }
                 this.startTimer(
                     exercises,

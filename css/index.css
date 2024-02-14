@@ -3,8 +3,10 @@ html, body {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Oxygen, Cantarell, sans-serif;
 	color: #5c5c5c;
 
+	--border-color: #5c5c5c;
 	--text-color: #5c5c5c;
-	--main-bg-color: #e2d78d;
+	--main-bg-color: #fff;
+	--accent-color: #978a33;
 	--container-border-radius: 3px;
 	--container-shadow: 4px 4px 7px 0px rgba(34, 60, 80, 0.2);
 	--item-shadow: 3px 2px 4px 0px rgb(22 41 56 / 20%);
@@ -19,10 +21,15 @@ head {
  * ========= MAIN =========
  */ 
 
+span.correct {
+	color: #45a717;
+}
+
 span.incorrect {
 	text-decoration: line-through;
 	color: red;
 	margin-right: 5px;
+	font-weight: 200;
 }
 
 span.incorrect span {
@@ -32,9 +39,18 @@ span.incorrect span {
 
 p {
 	font-size: 18px;
-	font-weight: 300;
-	line-height: 20px;
-	padding: 5px 0;
+	font-weight: 200;
+	line-height: 22px;
+	margin: 10px 0;
+	text-align: justify;
+}
+
+p:first-child {
+	margin-top: 0;
+}
+
+p:last-child {
+	margin-bottom: 0;
 }
 
 input, select {
@@ -62,11 +78,34 @@ h2 {
     padding: 20px 0;
 }
 
+img {
+	width: 100%;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+strong {
+	font-weight: 600;
+}
+
+ul {
+	display: block;
+	list-style-type: disc;
+	padding-inline-start: 40px;
+}
+
+li {
+	margin: 10px 0;
+	font-size: 16px;
+	font-weight: 300;
+	line-height: 20px;
+}
+
 /*
  * ========= PAGE =========
  */ 
 
-.page {
+.Page {
 	width: 100%;
 	min-height: 100%;
 	display: flex;
@@ -76,161 +115,197 @@ h2 {
     background: var(--main-bg-color);
 }
 
-@media screen and (max-width: 1050px) {
-	.page {
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-}
-
 /*
  * ========= HEAD =========
  */ 
 
-.head {
+.Head {
 	display: block;
-	width: 1000px;
-	background: white;
-	padding: 20px 30px;
-	border-bottom-left-radius: var(--container-border-radius);
-	border-bottom-right-radius: var(--container-border-radius);
-	box-shadow: var(--container-shadow);
+	background: var(--accent-color);
+	width: 100%;
+	padding: 30px 0;
 }
 
-@media screen and (max-width: 1050px) {
-	.head {
+.Head-Content {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+@media screen and (max-width: 1100px) {
+	.Head-Content {
 		width: 100%;
+		padding: 0 50px;
 	}
+}
+
+@media screen and (max-width: 700px) {
+	.Head-Content {
+		width: 100%;
+		padding: 0 20px;
+	}
+}
+
+.Head-Title {
+	color: #fff;
+	font-size: 40px;
+	font-weight: 600;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+.Head-SubTitle {
+	color: #fff;
+	font-size: 30px;
+	font-weight: 100;
+	margin-top: 5px;
+	text-transform: uppercase;
 }
 
 /*
  * ========= BODY =========
  */ 
 
-.body {
-	max-width: 1000px;
+.Body {
+	width: 1000px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+	margin-top: 40px;
 }
 
-@media screen and (max-width: 1050px) {
-	.body {
+@media screen and (max-width: 1100px) {
+	.Body {
 		width: 100%;
+		padding: 0 50px;
 	}
 }
 
-.body-intro, .body-preparing, .body-training {
+
+@media screen and (max-width: 700px) {
+	.Body {
+		width: 100%;
+		padding: 0 20px;
+		margin-top: 20px;
+	}
+}
+
+.Body-Intro, .Body-Preparing, .Body-Training {
 	background: white;
-	padding: 20px 30px;
-	border-radius: var(--container-border-radius);
-	margin-top: 20px;
-	box-shadow: var(--container-shadow);
+
 }
 
-.body-intro {
-	max-width: 1000px;
+.Body-Intro {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 1000px;
+	margin: 0 auto;
 }
 
-.body-preparing {
-	max-width: 500px;
+.Body-Preparing {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 1000px;
 }
 
 @media screen and (max-width: 600px) {
-	.body-preparing {
+	.Body-Preparing {
 		width: 100%;
 	}
 }
 
-.body-training {
+.Body-Training {
 	max-width: 1000px;
 }
 
 /*
- * ========= selectTraining =========
+ * ========= TrainingSelector =========
  */
-.selectTraining {
-    display: flex;
-    flex-direction: row;
-    align-content: flex-start;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-top: 10px;
+.TrainingSelector {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: flex-start;
+	width: 100%;
+	border-top: 1px solid var(--border-color);
+	border-bottom: 1px solid var(--border-color);
+	margin: 15px 0;
 }
 
-@media screen and (max-width: 800px) {
-	.selectTraining {
+.TrainingSelector-Item {
+	cursor: pointer;
+	padding: 15px;
+	text-transform: uppercase;
+	font-weight: 200;
+	font-size: 20px;
+	position: relative;
+}
+
+.TrainingSelector-Item:hover:after {
+	content: ' ';
+	width: 100%;
+	border-bottom: 5px solid var(--accent-color);
+	position: absolute;
+	left: 0;
+	bottom: -3px;
+}
+
+/*
+ * ========= TrainingPreparation =========
+ */
+
+.TrainingPreparation {
+
+}
+
+.TrainingPreparation_Title {
+	font-size: 25px;
+	font-weight: 200;
+	text-transform: uppercase;
+	padding: 0 0 25px 0;
+}
+
+.TrainingPreparation_Content {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: space-around;
+}
+
+.TrainingPreparation_Description {
+	margin-right: 20px;
+}
+
+.TrainingPreparation_Params {
+	margin-left: 20px;
+}
+
+
+@media screen and (max-width: 900px) {
+	.TrainingPreparation_Content {
 		display: flex;
 		flex-direction: column;
-		align-content: center;
-		flex-wrap: nowrap;
-		justify-content: flex-start;
 		align-items: center;
-		padding-top: 10px;
 	}
-}
 
-.selectTraining-item {
-	width: 100%;
-	min-height: 150px;
-	background: var(--main-bg-color);
-	border-radius: var(--container-border-radius);
-	padding: 10px 20px;
-	cursor: pointer;
-}
-
-.selectTraining-item:hover {
-	box-shadow: var(--item-shadow);
-}
-
-.selectTraining-item:active {
-	filter: brightness(90%);
-}
-
-.selectTraining-item:focus {
-	filter: brightness(90%);
-}
-
-.selectTraining-item:first-child {
-	margin-right: 10px;
-}
-
-.selectTraining-item:last-child {
-	margin-left: 10px;
-}
-
-
-@media screen and (max-width: 800px) {
-	.selectTraining-item:first-child {
+	.TrainingPreparation_Description {
 		margin-right: 0;
-		margin-bottom: 10px;
 	}
 
-	.selectTraining-item:last-child {
+	.TrainingPreparation_Params {
 		margin-left: 0;
-		margin-top: 10px;
+		margin-top: 20px;
 	}
 }
 
 /*
- * ========= preparingTraining =========
+ * ========= Param =========
  */
 
-.preparingTraining {
-	
-}
-
-.preparingTraining-params {
-	
-}
-
-/*
- * ========= param =========
- */
-
-.param {
+.Param {
     display: flex;
     justify-content: flex-start;
     align-items: baseline;
@@ -238,89 +313,111 @@ h2 {
     padding-bottom: 5px;
 }
 
-.param:last-child {
-	padding-bottom: 0px;
+.Param:last-child {
+	padding-bottom: 0;
 }
 
-.param-label {
+.Param_Label {
 	width: 200px;
 	font-weight: 100;
+	margin-right: 10px;
 }
 
 /*
- * ========= actions =========
+ * ========= Actions =========
  */
 
-.actions {
+.Actions {
 	display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+
 }
 
-.actions-button {
+.Actions_Button {
 	cursor: pointer;
-	width: 100%;
 	height: 40px;
-	border: 0px;
-}
-
-.actions-button:hover {
-	box-shadow: var(--item-shadow);
-}
-
-.actions-button:active {
-	filter: brightness(90%);
-}
-
-.actions-button:focus {
-	filter: brightness(90%);
-}
-
-.actions-button:first-child {
+	border: 0;
+	width: 200px;
 	margin-right: 10px;
 }
 
-.actions-button:last-child {
-	margin-left: 10px;
+.Actions_Button:hover {
+	box-shadow: var(--item-shadow);
 }
 
-.actions-button.primary {
-	background: var(--main-bg-color);
+.Actions_Button:active {
+	filter: brightness(90%);
+}
+
+.Actions_Button:focus {
+	filter: brightness(90%);
+}
+
+
+.Actions_Button:last-child {
+	margin-right: 0;
+}
+
+.Actions_Button.primary {
+	background: var(--accent-color);
+	color: #fff
 }
 
 /*
- * ========= testTrainingTable =========
+ * ========= TestTrainingTable =========
  */
 
-.testTrainingTable {
+.TestTrainingTable {
 	margin-top: 20px;
 }
 
-.testTrainingTable-input {
+.TestTrainingTable-input {
 	width: 150px;
 	margin-bottom: 5px;
 }
 
-.testTrainingTable thead th {
+.TestTrainingTable thead th {
 	font-weight: 800;
 	padding-bottom: 10px;
 }
 
-.testTrainingTable thead th:first-child {
-	padding-right: 5px;
+.TestTrainingTable thead th:first-child {
+	padding-right: 15px;
 	text-align: end;
 }
-
-.testTrainingTable tr:last-child .testTrainingTable-input {
-	margin-bottom: 0px;
+.TestTrainingTable thead th:last-child {
+	text-align: start;
+	padding-left: 10px;
 }
 
-.testTrainingTable tr td:first-child {
+.TestTrainingTable_checking thead th:last-child {
+	padding-left: 0;
+}
+
+.TestTrainingTable tr:last-child .TestTrainingTable-input {
+	margin-bottom: 0;
+}
+
+.TestTrainingTable tr td:first-child {
 	padding-right: 5px;
 	text-align: end;
+	font-weight: 200;
+	font-size: 20px;
+}
+
+.TestTrainingTable_checking tr td:first-child {
+	font-size: 20px;
+	font-weight: 200;
+
+}
+
+.TestTrainingTable_checking tr td:last-child {
+	font-size: 20px;
+	font-weight: 600;
 }
 
 /*
@@ -337,10 +434,10 @@ h2 {
 }
 
 /*
- * ========= dictationTraining =========
+ * ========= DictationTraining =========
  */
 
-.dictationTraining {
+.DictationTraining {
 	width: 300px;
 	display: flex;
 	flex-direction: column;
@@ -348,14 +445,23 @@ h2 {
 	align-items: center;
 }
 
-.dictationTraining-solving {
+.DictationTraining_Solving {
 	margin-top: 20px;
 	font-size: 30px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
-.dictationTraining-checking {
+.DictationTraining_Checking {
 	margin-top: 20px;
 	font-size: 30px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+/*
+ * ========= TestTraining =========
+ */
+
+.TestTraining {
+	display: flex;
+	flex-direction: column;
 }

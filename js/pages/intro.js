@@ -2,7 +2,7 @@ class IntroPage extends Page {
 	constructor(onStateChange) {
 		super()
 		this.onStateChange = onStateChange
-		this.control = new Block("body-intro")
+		this.control = new Block("Body-Intro", true)
 
 		new Button("dictationInfo").onClick(() => {
 			this.onStateChange({

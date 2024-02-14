@@ -1,7 +1,7 @@
 class LoaderPage extends Page {
 	constructor() {
 		super()
-		this.control = new Block("loader")
+		this.control = new Block("Loader")
 	}
 
 	render(state) {

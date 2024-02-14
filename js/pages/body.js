@@ -1,7 +1,7 @@
 class BodyPage extends Page {
 	constructor() {
 		super()
-		this.control = new Block("body", true)
+		this.control = new Block("Body", true)
 	}
 
 	render(state) {
