@@ -67,6 +67,13 @@ input:hover, select:hover {
 	box-shadow: var(--item-shadow);
 }
 
+
+@media screen and (max-width: 450px) {
+	input, select {
+		width: 170px;
+	}
+}
+
 h1 {
 	font-weight: 700;
 	font-size: 25px;
@@ -113,6 +120,8 @@ li {
 	justify-content: flex-start;
 	align-items: center;
     background: var(--main-bg-color);
+	min-width: 400px;
+	padding-bottom: 40px;
 }
 
 /*
@@ -323,6 +332,12 @@ li {
 	margin-right: 10px;
 }
 
+@media screen and (max-width: 450px) {
+	.Param_Label {
+		width: 170px;
+	}
+}
+
 /*
  * ========= Actions =========
  */
@@ -343,6 +358,12 @@ li {
 	border: 0;
 	width: 200px;
 	margin-right: 10px;
+}
+
+@media screen and (max-width: 450px) {
+	.Actions_Button {
+		width: 170px;
+	}
 }
 
 .Actions_Button:hover {
