@@ -170,6 +170,13 @@ li {
 	text-transform: uppercase;
 }
 
+@media screen and (max-width: 450px) {
+	.Head-SubTitle {
+		font-size: 27px;
+	}
+}
+
+
 /*
  * ========= BODY =========
  */ 
