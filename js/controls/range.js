@@ -33,4 +33,10 @@ class RangeControl extends Block {
 	onChange(callback) {
 		this.onChangeCallbacks.push(callback)
 	}
+
+	updateState(setState, field) {
+		this.onChange((value) => {
+			setState({ [field]: value})
+		})
+	}
 }

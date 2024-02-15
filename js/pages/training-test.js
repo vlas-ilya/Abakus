@@ -1,9 +1,9 @@
 class TrainingTest {
-    constructor(onStateChange) {
-        this.onStateChange = onStateChange
+    constructor(setState, timerBody, timer) {
+        this.setState = setState
         this.testTraining = new Block("testTraining", true)
-        this.timerBody = new Block("trainingTimerBody")
-        this.timer = new Span("trainingTimer")
+        this.timerBody = timerBody
+        this.timer = timer
     }
 
     hide() {
@@ -18,6 +18,7 @@ class TrainingTest {
         this.showUI(exercises, false)
 
         this.startTimer(timeSolvingTest, () => {
+            clearInterval(this.interval)
             this.timerBody.hide()
             this.showUI(exercises, true)
         })
@@ -119,9 +120,7 @@ class TrainingTest {
                     button.classList.add("secondary")
                     button.addEventListener(
                         'click',
-                        () => {
-                            this.onStateChange({step: "preparing"})
-                        },
+                        () => this.setState({step: "preparing"}),
                         false
                     )
                 })

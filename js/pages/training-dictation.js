@@ -1,9 +1,9 @@
 class TrainingDictation {
-    constructor(onStateChange) {
-        this.onStateChange = onStateChange
-        this.dictationTraining = new Page("dictationTraining", true)
-        this.timerBody = new Block("trainingTimerBody")
-        this.timer = new Span("trainingTimer")
+    constructor(setState, timerBody, timer) {
+        this.setState = setState
+        this.dictationTraining = new Block("dictationTraining", true)
+        this.timerBody = timerBody
+        this.timer = timer
     }
 
     hide() {
@@ -13,8 +13,8 @@ class TrainingDictation {
 
     showExercises(timeSolving, timeChecking, exercises) {
         this.timer.setText(timeSolving)
-        this.dictationTraining.show()
         this.timerBody.show()
+        this.dictationTraining.show()
 
         this.exercisesCount = exercises.length
         this.currentExercise = 1
@@ -31,9 +31,7 @@ class TrainingDictation {
                             button.classList.add("secondary")
                             button.addEventListener(
                                 'click',
-                                () => {
-                                    this.onStateChange({step: "preparing"})
-                                },
+                                () => this.setState({step: "preparing"}),
                                 false
                             )
                         })
@@ -55,9 +53,7 @@ class TrainingDictation {
                         button.classList.add("secondary")
                         button.addEventListener(
                             'click',
-                            () => {
-                                this.onStateChange({step: "preparing"})
-                            },
+                            () => this.setState({step: "preparing"}),
                             false
                         )
                     })
@@ -78,9 +74,7 @@ class TrainingDictation {
                         button.classList.add("secondary")
                         button.addEventListener(
                             'click',
-                            () => {
-                                this.onStateChange({step: "preparing"})
-                            },
+                            () => this.setState({step: "preparing"}),
                             false
                         )
                     })
@@ -98,12 +92,12 @@ class TrainingDictation {
         callback(type, exercises[0])
 
         const currentTime = new Date()
-        
+
         this.interval = setInterval(() => {
             const time = (type === "solving" ? timeSolving : timeChecking) - Math.floor((new Date() - currentTime) / 1000)
             if (time < 0) {
                 clearInterval(this.interval)
-                if (type === "checking"){
+                if (type === "checking") {
                     exercises = exercises.slice(1)
                     this.currentExercise += 1
                 }

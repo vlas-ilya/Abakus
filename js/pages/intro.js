@@ -1,28 +1,15 @@
 class IntroPage extends Page {
-	constructor(onStateChange) {
-		super("bodyIntro", true)
-		this.onStateChange = onStateChange
+    constructor(onStateChange) {
+        super("bodyIntro", 'intro', onStateChange, true)
 
-		new Button("dictationInfo").onClick(() => {
-			this.onStateChange({
-				step: "preparing",
-				trainingType: "dictation",
-			})
-		})
+        this.updateStateOnClick(new Button("dictationInfo"), {
+            step: "preparing",
+            trainingType: "dictation",
+        })
 
-		new Button("testInfo").onClick(() => {
-			this.onStateChange({
-				step: "preparing",
-				trainingType: "test",
-			})
-		})
-	}
-
-	render(state) {
-		if (state.step === 'intro') {
-			this.show()
-		} else {
-			this.hide()
-		}
-	}
+        this.updateStateOnClick(new Button("testInfo"), {
+            step: "preparing",
+            trainingType: "test",
+        })
+    }
 }
