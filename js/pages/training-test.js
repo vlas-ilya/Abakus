@@ -1,10 +1,9 @@
 class TrainingTest {
     constructor(onStateChange) {
         this.onStateChange = onStateChange
-        this.control = new Block("Body-Training")
-        this.testTraining = new Block("TestTraining", true)
-        this.timerBody = new Block("trainingTimer")
-        this.timer = new Span("trainingTimer-timer")
+        this.testTraining = new Block("testTraining", true)
+        this.timerBody = new Block("trainingTimerBody")
+        this.timer = new Span("trainingTimer")
     }
 
     hide() {
@@ -25,7 +24,6 @@ class TrainingTest {
 
         this.timerBody.show()
         this.testTraining.show()
-
     }
 
     showUI(exercises, showAnswers) {
@@ -58,7 +56,7 @@ class TrainingTest {
                                     add(td, "input", input => {
                                         input.setAttribute("answer", exercise[1])
                                         input.setAttribute("type", "number")
-                                        input.classList.add("TestTrainingTable-input")
+                                        input.classList.add("TestTrainingTable_Input")
                                         input.addEventListener(
                                             "change",
                                             (event) => exercise[2] = 1 * event.target.value,

@@ -1,10 +1,9 @@
 class TrainingDictation {
     constructor(onStateChange) {
         this.onStateChange = onStateChange
-        this.control = new Block("Body-Training")
-        this.dictationTraining = new Page("DictationTraining", true)
-        this.timerBody = new Block("trainingTimer")
-        this.timer = new Span("trainingTimer-timer")
+        this.dictationTraining = new Page("dictationTraining", true)
+        this.timerBody = new Block("trainingTimerBody")
+        this.timer = new Span("trainingTimer")
     }
 
     hide() {
@@ -99,6 +98,7 @@ class TrainingDictation {
         callback(type, exercises[0])
 
         const currentTime = new Date()
+        
         this.interval = setInterval(() => {
             const time = (type === "solving" ? timeSolving : timeChecking) - Math.floor((new Date() - currentTime) / 1000)
             if (time < 0) {

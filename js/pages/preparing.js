@@ -1,9 +1,7 @@
 class PreparingPage extends Page {
 	constructor(onStateChange) {
-		super()
+		super("bodyPreparing", true)
 		this.onStateChange = onStateChange
-
-		this.control = new Block("Body-Preparing", true)
 		
 		this.dictationPreparingBlock = new Block("dictationPreparing")
 
@@ -157,11 +155,11 @@ class PreparingPage extends Page {
 				this.testLevel.setValue(state.level)
 				this.testTimeSolving.setValue(state.timeSolvingTest)
 			}
-			this.control.show()
+			this.show()
 		} else {
 			this.dictationPreparingBlock.hide()
 			this.testPreparingBlock.hide()
-			this.control.hide()
+			this.hide()
 		}
 	}
 }

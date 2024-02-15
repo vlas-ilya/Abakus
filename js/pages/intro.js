@@ -1,8 +1,7 @@
 class IntroPage extends Page {
 	constructor(onStateChange) {
-		super()
+		super("bodyIntro", true)
 		this.onStateChange = onStateChange
-		this.control = new Block("Body-Intro", true)
 
 		new Button("dictationInfo").onClick(() => {
 			this.onStateChange({
@@ -18,12 +17,12 @@ class IntroPage extends Page {
 			})
 		})
 	}
-	
+
 	render(state) {
 		if (state.step === 'intro') {
-			this.control.show()
+			this.show()
 		} else {
-			this.control.hide()
+			this.hide()
 		}
 	}
 }

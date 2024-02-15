@@ -1,14 +1,13 @@
 class BodyPage extends Page {
 	constructor() {
-		super()
-		this.control = new Block("Body", true)
+		super("body", true)
 	}
 
 	render(state) {
 		if (state.step !== 'loading') {
-			this.control.show()
+			this.show()
 		} else {
-			this.control.hide()
+			this.hide()
 		}
 	}
 }

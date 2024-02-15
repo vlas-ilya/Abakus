@@ -1,15 +1,14 @@
 class TrainingPage extends Page {
 	constructor(onStateChange) {
-		super()
+		super("bodyTraining")
 		this.onStateChange = onStateChange
 
-		this.control = new Block("Body-Training")
 		this.trainingLoader = new Block("trainingLoader")
 		this.dictationTraining = new TrainingDictation(this.onStateChange)
 		this.testTraining = new TrainingTest(this.onStateChange)
 
-		this.timerBody = new Block("trainingTimer")
-		this.timer = new Span("trainingTimer-timer")
+		this.timerBody = new Block("trainingTimerBody")
+		this.timer = new Span("trainingTimer")
 	}
 
 	render(state) {
@@ -17,8 +16,8 @@ class TrainingPage extends Page {
 			this.dictationTraining.hide()
 			this.testTraining.hide()
 			this.timerBody.hide()
-			this.control.hide()
 			this.trainingLoader.hide()
+			this.hide()
 			return
 		}
 
@@ -43,6 +42,6 @@ class TrainingPage extends Page {
 			}
 		}
 
-		this.control.show()
+		this.show()
 	}
 }

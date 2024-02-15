@@ -1,6 +1,6 @@
 class Block {
 	constructor(selector, flex = false) {
-		this.control = document.getElementById(selector) || document.getElementsByClassName(selector)[0]
+		this.control = document.getElementById(selector)
 		this.flex = flex
 	}
 

@@ -1,14 +1,13 @@
 class LoaderPage extends Page {
 	constructor() {
-		super()
-		this.control = new Block("Loader")
+		super("loader")
 	}
 
 	render(state) {
 		if (state.step === 'loading') {
-			this.control.show()
+			this.show()
 		} else {
-			this.control.hide()
+			this.hide()
 		}
 	}
 }
