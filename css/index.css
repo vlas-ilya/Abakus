@@ -562,6 +562,7 @@ li {
 	color: var(--link-color);
 	text-decoration: none;
 	display: inline-block;
+	font-weight: 200;
 }
 
 .Link:after {
