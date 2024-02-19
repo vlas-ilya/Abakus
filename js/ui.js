@@ -34,7 +34,7 @@ class UI {
                 this.state.level,
                 this.setState.bind(this)
             )
-            this.savePreference(state.trainingType)
+            this.savePreference()
         }
         if (this.state.step !== 'preparing' && state.step === 'preparing') {
             this.loadPreference(state.trainingType)
@@ -44,9 +44,9 @@ class UI {
         console.log("New state: ", this.state)
     }
 
-    savePreference(trainingType) {
+    savePreference() {
         savePreference(
-            trainingType,
+            this.state.trainingType,
             {
                 numberCount: this.state.numberCount,
                 exerciseCount: this.state.exerciseCount,
