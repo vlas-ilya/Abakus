@@ -22,7 +22,7 @@ class TrainingDictation {
         this.startTimer(exercises, "solving", timeSolving, timeChecking, (type, exercise) => {
             this.dictationTraining.clear()
             if (type === "finish") {
-                this.timerBody.clear()
+                this.timer.clear()
                 apply(this.dictationTraining.control, root => {
                     add(root, "div", div => {
                         add(div, 'button', button => {
